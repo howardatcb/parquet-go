@@ -763,12 +763,12 @@ func (p *Statistics) IsSetMinValue() bool {
 }
 
 func (p *Statistics) Read(ctx context.Context, iprot thrift.TProtocol) error {
-	if _, err := iprot.ReadStructBegin(ctx); err != nil {
+	if _, err := iprot.ReadStructBegin(); err != nil {
 		return thrift.PrependError(fmt.Sprintf("%T read error: ", p), err)
 	}
 
 	for {
-		_, fieldTypeId, fieldId, err := iprot.ReadFieldBegin(ctx)
+		_, fieldTypeId, fieldId, err := iprot.ReadFieldBegin()
 		if err != nil {
 			return thrift.PrependError(fmt.Sprintf("%T field %d read error: ", p, fieldId), err)
 		}
@@ -782,7 +782,7 @@ func (p *Statistics) Read(ctx context.Context, iprot thrift.TProtocol) error {
 					return err
 				}
 			} else {
-				if err := iprot.Skip(ctx, fieldTypeId); err != nil {
+				if err := iprot.Skip(fieldTypeId); err != nil {
 					return err
 				}
 			}
@@ -792,7 +792,7 @@ func (p *Statistics) Read(ctx context.Context, iprot thrift.TProtocol) error {
 					return err
 				}
 			} else {
-				if err := iprot.Skip(ctx, fieldTypeId); err != nil {
+				if err := iprot.Skip(fieldTypeId); err != nil {
 					return err
 				}
 			}
@@ -802,7 +802,7 @@ func (p *Statistics) Read(ctx context.Context, iprot thrift.TProtocol) error {
 					return err
 				}
 			} else {
-				if err := iprot.Skip(ctx, fieldTypeId); err != nil {
+				if err := iprot.Skip(fieldTypeId); err != nil {
 					return err
 				}
 			}
@@ -812,7 +812,7 @@ func (p *Statistics) Read(ctx context.Context, iprot thrift.TProtocol) error {
 					return err
 				}
 			} else {
-				if err := iprot.Skip(ctx, fieldTypeId); err != nil {
+				if err := iprot.Skip(fieldTypeId); err != nil {
 					return err
 				}
 			}
@@ -822,7 +822,7 @@ func (p *Statistics) Read(ctx context.Context, iprot thrift.TProtocol) error {
 					return err
 				}
 			} else {
-				if err := iprot.Skip(ctx, fieldTypeId); err != nil {
+				if err := iprot.Skip(fieldTypeId); err != nil {
 					return err
 				}
 			}
@@ -832,16 +832,16 @@ func (p *Statistics) Read(ctx context.Context, iprot thrift.TProtocol) error {
 					return err
 				}
 			} else {
-				if err := iprot.Skip(ctx, fieldTypeId); err != nil {
+				if err := iprot.Skip(fieldTypeId); err != nil {
 					return err
 				}
 			}
 		default:
-			if err := iprot.Skip(ctx, fieldTypeId); err != nil {
+			if err := iprot.Skip(fieldTypeId); err != nil {
 				return err
 			}
 		}
-		if err := iprot.ReadFieldEnd(ctx); err != nil {
+		if err := iprot.ReadFieldEnd(); err != nil {
 			return err
 		}
 	}
